@@ -1,12 +1,18 @@
 // Home.js
-import React from "react";
-import Progress from "../components/progress";
+import React, { useState } from 'react';
+import Checkoutheader from "../components/checkoutheader";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import AlwaysOpenDatePicker from '../components/alwaysopendatepicker';
+
+
+
 
 function Book() {
   return (
     <div className="h-screen">
-        <div name='progress'>
-        <Progress value={10}/>
+        <div name='header'>
+        <Checkoutheader progress={10}/>
         </div>
 
 
@@ -14,9 +20,11 @@ function Book() {
 
         <div name='body' className="flex h-screen">
             <div name='calander' className='flex-1 p-4 border border-gray-200'>
-                <input type="date"/>
+            <h1 className="text-lg">Choose a Day</h1>
+                <AlwaysOpenDatePicker/>
             </div>
             <div name='times' className='flex-1 p-4 border border-gray-200'>
+                <h1 className="text-lg">Choose a Time</h1>
                 <div name='times-1'>
                     <button className="btn">9:00 AM</button>
                     <button className="btn">10:00 AM</button>
