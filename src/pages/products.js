@@ -1,5 +1,5 @@
 import React from "react";
-import Progress from "../components/progress";
+import Checkoutheader from "../components/checkoutheader";
 // <img src={productPlaceholder} alt="Head & Shoulders Image" />
 
 function Products() {
@@ -7,7 +7,7 @@ function Products() {
     <div>
         <h2>Select your products</h2>
         <div name='progress'>
-            <Progress value={55}/>
+            <Checkoutheader progress={55}/>
         </div>
       
 
