@@ -11,8 +11,8 @@ import AlwaysOpenDatePicker from '../components/alwaysopendatepicker';
 function Book() {
   return (
     <div className="h-screen">
-        <div name='header'>
-        <Checkoutheader progress={10}/>
+        <div name='header'> 
+        <Checkoutheader progress={10} next={'/services'} back={'/'}/>
         </div>
 
 
@@ -25,19 +25,37 @@ function Book() {
             </div>
             <div name='times' className='flex-1 p-4 border border-gray-200'>
                 <h1 className="text-lg">Choose a Time</h1>
-                <div name='times-1'>
-                    <button className="btn">9:00 AM</button>
-                    <button className="btn">10:00 AM</button>
-                    <button className="btn">11:00 AM</button>
-                    <button className="btn">12:00 PM</button>
-                    <button className="btn">1:00 PM</button>
+                    <div name='times-1'>
+                    <input type="radio" id="time1" name="time" value="9:00 AM" className=" my-8" />
+                    <label htmlFor="time1" className="btn peer-checked:bg-blue-300">9:00 AM</label>
+
+                    <input type="radio" id="time2" name="time" value="10:00 AM" className=" " />
+                    <label htmlFor="time2" className="btn peer-checked:bg-blue-300">10:00 AM</label>
+
+                    <input type="radio" id="time3" name="time" value="11:00 AM" className=" " />
+                    <label htmlFor="time3" className="btn peer-checked:bg-blue-300">11:00 AM</label>
+
+                    <input type="radio" id="time4" name="time" value="12:00 PM" className=" " />
+                    <label htmlFor="time4" className="btn peer-checked:bg-blue-300">12:00 PM</label>
+
+                    <input type="radio" id="time5" name="time" value="1:00 PM" className=" " />
+                    <label htmlFor="time5" className="btn peer-checked:bg-blue-300">1:00 PM</label>
                 </div>
                 <div name='times-2'>
-                    <button className="btn">2:00 PM</button>
-                    <button className="btn">3:00 PM</button>
-                    <button className="btn">4:00 PM</button>
-                    <button className="btn">5:00 PM</button>
-                    <button className="btn">6:00 PM</button>
+                    <input type="radio" id="time6" name="time" value="2:00 PM" className=" " />
+                    <label htmlFor="time6" className="btn peer-checked:bg-blue-300">9:00 AM</label>
+
+                    <input type="radio" id="time7" name="time" value="3:00 PM" className=" " />
+                    <label htmlFor="time7" className="btn peer-checked:bg-blue-300">10:00 AM</label>
+
+                    <input type="radio" id="time8" name="time" value="4:00 PM" className=" " />
+                    <label htmlFor="time8" className="btn peer-checked:bg-blue-300">11:00 AM</label>
+
+                    <input type="radio" id="time9" name="time" value="5:00 PM" className=" " />
+                    <label htmlFor="time9" className="btn peer-checked:bg-blue-300">12:00 PM</label>
+
+                    <input type="radio" id="time10" name="time" value="6:00 PM" className=" " />
+                    <label htmlFor="time10" className="btn peer-checked:bg-blue-300">1:00 PM</label>
                 </div>
             </div>
 

@@ -6,11 +6,14 @@ function Services() {
   return (
     <div>
         <div name='progress'>
-        <Checkoutheader progress={35}/>
+        <Checkoutheader progress={35} next={'/products'} back={'/book'}/>
         </div>
 
         <div className="flex h-screen">
+          
             <div name='services' className='flex-1 p-4 border border-gray-200'>
+              <h2>Select your services</h2>
+
                 <input type="checkbox" id="cut" name="service" value="cut"/>
                 <label for="cut">Cut (25$)
                 <img src="cut.jpg" className="max-w-48"/>
@@ -27,6 +30,7 @@ function Services() {
             </div>
 
             <div name='stylists' className='flex-1 p-4 border border-gray-200'>
+                <h2>Select your stylist</h2>
                 <input type="radio" id="rachel" name="stylist" value="rachel"/>
                 <label for="rachel">Rachel
                 <img src="rachel.jpg" className="max-w-48"/></label><br/>

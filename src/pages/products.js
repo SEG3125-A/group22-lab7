@@ -5,12 +5,12 @@ import Checkoutheader from "../components/checkoutheader";
 function Products() {
   return (
     <div>
-        <h2>Select your products</h2>
+        
         <div name='progress'>
-            <Checkoutheader progress={55}/>
+            <Checkoutheader progress={55} next={'/checkout'} back={'/services'}/>
         </div>
       
-
+        <h2>Select your products</h2>
         <div class="container" className="flex h-screen">
             <div className='flex-1 p-4 border border-gray-200'>
                 <h3>Shampoo</h3>
