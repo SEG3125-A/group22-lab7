@@ -27,19 +27,19 @@ function Checkout() {
     </div>
     <div className="flex-1">
       <label for="email" class="block mb-2 text-sm font-medium text-black">Email</label>
-      <input type="text" id="email" class="input" required />
-      <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone Number</label>
-      <input type="tel" id="phone" class="input" required />
+      <input type="email" id="email" pattern=".+@example\.com" class="input" required />
+      <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone Number <small>Format: 123-456-7890</small></label>
+      <input type="tel" id="phone" class="input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
       <label for="postal" class="block mb-2 text-sm font-medium text-black">Postal Code</label>
       <input type="text" id="postal" class="input" required />
     </div>
     <div className="flex-1">
       <label for="credit" class="block mb-2 text-sm font-medium text-black">Credit Card Number</label>
-      <input type="text" id="credit" class="input" required />
+      <input type="number" id="credit" class="input" max="19" min="8" required />
       <label for="exp" class="block mb-2 text-sm font-medium text-black">Credit Card Expiration Date</label>
       <input type="date" id="exp" class="input" required />
       <label for="security" class="block mb-2 text-sm font-medium text-black">Credit Card Security Code</label>
-      <input type="text" id="security" class="input" required />
+      <input type="number" id="security" class="input" max="4" min="3" required />
       <label for="card_name" class="block mb-2 text-sm font-medium text-black">Name on Card</label>
       <input type="text" id="card_name" class="input" required />
     </div>
