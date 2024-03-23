@@ -8,22 +8,22 @@ import AlwaysOpenDatePicker from '../components/alwaysopendatepicker';
 
 
 
-function Book() {
+function BookFR() {
   return (
     <div className="h-screen">
         <div name='header'> 
-        <Checkoutheader progress={10} next={'/services'} back={'/'} lan={'/bookFR'}/>
+        <Checkoutheader progress={10} next={'/servicesFR'} back={'/FR'} lan={'/book'}/>
         </div>
 
 
 
         <div name='body'lang='en' className="flex h-screen">
             <div name='calander' className='flex-1 p-4 border border-gray-200'>
-            <h1 className="text-lg">Choose a Day</h1>
+            <h1 className="text-lg">Choisissez un jour</h1>
                 <AlwaysOpenDatePicker/>
             </div>
             <div name='times' className='flex-1 p-4 border border-gray-200'>
-                <h1 className="text-lg">Choose a Time</h1>
+                <h1 className="text-lg">Choisissez une heure</h1>
                     <div name='times-1'>
                     <input type="radio" id="time1" name="time" value="9:00 AM" className=" my-8" />
                     <label htmlFor="time1" className="btn peer-checked:bg-blue-300">9:00 AM</label>
@@ -64,4 +64,4 @@ function Book() {
   ;
 }
 
-export default Book
+export default BookFR

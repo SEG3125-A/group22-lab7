@@ -7,7 +7,7 @@ function Products() {
     <div>
         
         <div name='progress'>
-            <Checkoutheader progress={55} next={'/checkout'} back={'/services'}/>
+            <Checkoutheader progress={55} next={'/checkout'} back={'/services'} lan={'/productsFR'}/>
         </div>
       
         <h2>Select your products</h2>
