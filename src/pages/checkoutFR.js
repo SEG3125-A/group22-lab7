@@ -1,8 +1,51 @@
-// Home.js
-import React from "react";
+import React, { useState } from "react";
 import Checkoutheader from "../components/checkoutheader";
+import { useNavigate } from 'react-router-dom';
 
 function CheckoutFR() {
+
+  let navigate = useNavigate();
+  // For the following validation steps I learned from this site: https://leanylabs.com/blog/form-validation-in-react/
+
+  // This is to store users’ input
+  const [formFields, setFormFields] = useState({
+    email: '',
+    phone: '',
+    credit: ''
+  });
+  const [errors, setErrors] = useState({});
+
+  // Update the state every time a user enters (or deletes) values in the field
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormFields({ ...formFields, [id]: value });
+  };
+
+  // Validate all fields
+  const validateFields = () => {
+    const newErrors = {};
+    if (!formFields.email.includes('@gmail.com')) {
+      newErrors.email = 'Email must be an @example.com address.';
+    }
+    if (!formFields.phone.match(/^\d{3}-\d{3}-\d{4}$/)) {
+      newErrors.phone = 'Phone format must be XXX-XXX-XXXX.';
+    }
+    if (formFields.credit.length < 8 || formFields.credit.length > 19) {
+      newErrors.credit = 'Credit card number length is invalid.';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Only submit form if valid
+  const goToConfirmation = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    const isValid = validateFields();
+    if (isValid) {
+      navigate('/confirmation');
+    }
+  }  
+
   return (
     <div>
 
@@ -10,6 +53,7 @@ function CheckoutFR() {
         <Checkoutheader progress={95} next={'/checkoutFR'} back={'/productsFR'} lan={'/checkout'}/>
         </div>
 
+        <form onSubmit={goToConfirmation}>
         <div className="flex h-screen">
   <div name='services' className='flex-grow p-4 border border-gray-200' style={{ flexBasis: '75%' }}>
     <p>Informations personnelles</p>
@@ -27,15 +71,17 @@ function CheckoutFR() {
     </div>
     <div className="flex-1">
       <label for="email" class="block mb-2 text-sm font-medium text-black">Email</label>
-      <input type="text" id="email" class="input" required />
-      <label for="phone" class="block mb-2 text-sm font-medium text-black">Numéro de téléphone</label>
-      <input type="tel" id="phone" class="input" required />
+      <input type="email" id="email" value={formFields.email} onChange={handleChange} class="input" required />
+      {errors.email && <div style={{ color: 'red' }}>{errors.email}</div>}
+      <label for="phone" class="block mb-2 text-sm font-medium text-black">Numéro de téléphone<small>Format: 123-456-7890</small></label>
+      <input type="tel" id="phone" value={formFields.phone} onChange={handleChange} class="input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+      {errors.phone && <div style={{ color: 'red' }}>{errors.phone}</div>}
       <label for="postal" class="block mb-2 text-sm font-medium text-black">Code Postal</label>
       <input type="text" id="postal" class="input" required />
     </div>
     <div className="flex-1">
       <label for="credit" class="block mb-2 text-sm font-medium text-black">Numéro de Carte de Crédit</label>
-      <input type="text" id="credit" class="input" required />
+      <input type="number" id="credit" value={formFields.credit} onChange={handleChange} class="input" required />
       <label for="exp" class="block mb-2 text-sm font-medium text-black">Date d'expiration de la carte de crédit</label>
       <input type="date" id="exp" class="input" required />
       <label for="security" class="block mb-2 text-sm font-medium text-black">Code de sécurité de la carte de crédit</label>
@@ -52,11 +98,12 @@ function CheckoutFR() {
     <p className="text-left font-bold my-8">Frais de produits:</p>
     <p className="text-left font-bold my-8">Impôt:</p>
     <p className="text-left font-bold my-8">Total:</p>
-    <button className="btn">Vérifier</button>
+    <button type="submit" className="btn">Vérifier</button>
 
     <br/>
   </div>
 </div>
+</form>
     </div>
   )
   ;
