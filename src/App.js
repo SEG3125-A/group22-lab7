@@ -14,6 +14,7 @@ import BookFR from './pages/bookFR'
 import ServicesFR from './pages/servicesFR';
 import ProductsFR from './pages/productsFR';
 import CheckoutFR from './pages/checkoutFR';
+import Confirmation from './pages/confirmation';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/servicesFR" element={<ServicesFR />} />
         <Route path="/productsFR" element={<ProductsFR />} />
         <Route path="/checkoutFR" element={<CheckoutFR />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
       </Router>
     </div>
